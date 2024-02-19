@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:practica3_componentes/home_screen.dart';
+import 'package:practica3_componentes/screens/home_screen.dart';
+import 'package:practica3_componentes/theme/app_theme.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -9,18 +10,7 @@ class MainApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const HomeScreen(), 
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 222, 229, 240),
-        appBarTheme: const AppBarTheme(color: Color.fromARGB(99, 17, 70, 131)),
-        textTheme: const TextTheme(
-          headlineLarge: TextStyle(
-            color: Color.fromARGB(197, 19, 47, 126),
-            fontSize: 20.0,
-            fontFamily: 'sans-serif',
-          ),
-
-        )
-      ),
+      theme: AppTheme.lightTheme,
     );
   }
 }
