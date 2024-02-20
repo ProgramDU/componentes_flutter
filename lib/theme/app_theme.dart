@@ -19,6 +19,17 @@ class AppTheme{
             fontStyle: FontStyle.italic
           ),
 
+          bodySmall: GoogleFonts.montserrat(
+            color:Colors.black,
+            fontSize: 8.0,
+            decoration:TextDecoration.lineThrough,
+            fontStyle: FontStyle.normal,
+            decorationThickness: 1.0,
+
+
+          ),
+
+
         ),
   ); 
 }

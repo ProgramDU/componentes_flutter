@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_componentes/theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,14 +13,16 @@ class HomeScreen extends StatelessWidget {
         body: ListView(
           children:  [
             ListTile(
-              leading: const Icon(Icons.inbox_rounded),
+              leading: const Icon(Icons.inbox_rounded,
+              color: AppTheme.mainColor),
               title: Text('Entradas',
               style:  Theme.of(context).textTheme.headlineLarge,
               ),
               
-              subtitle: const Text("Diferentes widgets para entradas del flutter",
+              subtitle: Text("Diferentes widgets para entradas del flutter",
+              style: AppTheme.lightTheme.textTheme.bodyMedium,
               ),
-              trailing: const Icon(Icons.military_tech),
+              trailing: const Icon(Icons.military_tech, color: Colors.amber,),
             ),
             const Divider(),
             ListTile(
@@ -28,17 +31,20 @@ class HomeScreen extends StatelessWidget {
               style:  Theme.of(context).textTheme.headlineLarge,
                 ),
               
-              subtitle: const Text("Scroll infinito",),
+              subtitle:  Text("Scroll infinito",
+               style: AppTheme.lightTheme.textTheme.bodyMedium,),
               trailing: const Icon(Icons.arrow_circle_down),
             ),
             const Divider(),
-            const ListTile(
-              leading: Icon(Icons.accessibility_new),
-              title: Text('Notificaciones'),
+            ListTile(
+              leading: const Icon(Icons.accessibility_new),
+              title: Text('Notificaciones',
+              style:  Theme.of(context).textTheme.headlineLarge,),
               
-              subtitle: Text("Creacion de notificaciones"),
+              subtitle: Text("Creacion de notificaciones",
+              style: AppTheme.lightTheme.textTheme.bodyMedium,),
               
-              trailing: Icon(Icons.check),
+              trailing: const Icon(Icons.check),
             ),
           ],
           )
