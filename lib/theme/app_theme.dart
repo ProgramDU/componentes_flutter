@@ -20,7 +20,7 @@ class AppTheme{
           ),
 
           bodySmall: GoogleFonts.montserrat(
-            color:Colors.black,
+            color:const Color.fromARGB(255, 24, 22, 22),
             fontSize: 8.0,
             decoration:TextDecoration.lineThrough,
             fontStyle: FontStyle.normal,
