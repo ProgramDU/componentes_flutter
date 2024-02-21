@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_componentes/screens/infinit_list_screen.dart';
+import 'package:practica3_componentes/screens/input_screen.dart';
+import 'package:practica3_componentes/screens/notification_screen.dart';
 import 'package:practica3_componentes/theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -23,6 +26,12 @@ class HomeScreen extends StatelessWidget {
               style: AppTheme.lightTheme.textTheme.bodyMedium,
               ),
               trailing: const Icon(Icons.military_tech, color: Colors.amber,),
+              onTap: () {
+                final ruta1 = MaterialPageRoute(builder: (context){
+                  return const InputScreen();
+                });
+                Navigator.push(context, ruta1);
+              },
             ),
             const Divider(),
             ListTile(
@@ -34,6 +43,12 @@ class HomeScreen extends StatelessWidget {
               subtitle:  Text("Scroll infinito",
                style: AppTheme.lightTheme.textTheme.bodyMedium,),
               trailing: const Icon(Icons.arrow_circle_down),
+              onTap: () {
+                final ruta2 = MaterialPageRoute(builder: (context){
+                  return const InfiniteListScreen();
+                });
+                Navigator.push(context, ruta2);
+              },
             ),
             const Divider(),
             ListTile(
@@ -45,6 +60,12 @@ class HomeScreen extends StatelessWidget {
               style: AppTheme.lightTheme.textTheme.bodyMedium,),
               
               trailing: const Icon(Icons.check),
+              onTap: () {
+                final ruta3 = MaterialPageRoute(builder: (context){
+                  return const NotificationScreen();
+                });
+                Navigator.push(context, ruta3);
+              },
             ),
           ],
           )
