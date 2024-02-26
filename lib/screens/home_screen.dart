@@ -16,8 +16,8 @@ class HomeScreen extends StatelessWidget {
         body: ListView(
           children:  [
             ListTile(
-              leading: const Icon(Icons.inbox_rounded,
-              color: AppTheme.mainColor),
+              leading: IconTheme(data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.input),),
               title: Text('Entradas',
               style:  Theme.of(context).textTheme.headlineLarge,
               ),
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
               subtitle: Text("Diferentes widgets para entradas del flutter",
               style: AppTheme.lightTheme.textTheme.bodyMedium,
               ),
-              trailing: const Icon(Icons.military_tech, color: Colors.amber,),
+              
               onTap: () {
                 final ruta1 = MaterialPageRoute(builder: (context){
                   return const InputScreen();
@@ -35,14 +35,15 @@ class HomeScreen extends StatelessWidget {
             ),
             const Divider(),
             ListTile(
-              leading: const Icon(Icons.list_alt_rounded),
+              leading: IconTheme(data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.list_alt),),
               title: Text('ListView.builder',
-              style:  Theme.of(context).textTheme.headlineLarge,
+                style:  Theme.of(context).textTheme.headlineLarge,
                 ),
               
               subtitle:  Text("Scroll infinito",
                style: AppTheme.lightTheme.textTheme.bodyMedium,),
-              trailing: const Icon(Icons.arrow_circle_down),
+             
               onTap: () {
                 final ruta2 = MaterialPageRoute(builder: (context){
                   return const InfiniteListScreen();
@@ -52,14 +53,15 @@ class HomeScreen extends StatelessWidget {
             ),
             const Divider(),
             ListTile(
-              leading: const Icon(Icons.accessibility_new),
+              leading: IconTheme(data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(Icons.notification_add),),
               title: Text('Notificaciones',
               style:  Theme.of(context).textTheme.headlineLarge,),
               
               subtitle: Text("Creacion de notificaciones",
               style: AppTheme.lightTheme.textTheme.bodyMedium,),
               
-              trailing: const Icon(Icons.check),
+              
               onTap: () {
                 final ruta3 = MaterialPageRoute(builder: (context){
                   return const NotificationScreen();
