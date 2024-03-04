@@ -12,31 +12,41 @@ class InputScreen extends StatefulWidget {
 class _InputScreenState extends State<InputScreen> {
   bool valueSwitch= false;
   double valueSlider = 0.0;
+  int selectedIndex =0;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(title: const Text('Entradas')),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-         Text('Entradas', style: AppTheme.lightTheme.textTheme.headlineLarge,
-         ),
-         entradaTexto(),
-         entradaSwitch(),
-         entradaSlider(),
-          const Row(
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            ElevatedButton(onPressed: null, child: Text('Regresar', 
+           
+           entradaTexto(),
+           entradaSwitch(),
+           entradaSlider(),
+            const ElevatedButton(onPressed: null, child: Text('Guardar',
             )
             ),
-            ElevatedButton(onPressed: null, child: Text('Ir a Data Screen',
-            )
-            ),
+            
           ],
-         ),
-          
-        ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(currentIndex: selectedIndex,
+      backgroundColor: AppTheme.accentColor,
+      items: const[
+        BottomNavigationBarItem(icon:Icon(Icons.home_max_rounded),
+        label: "Inicio",
+        backgroundColor: Colors.blue),
+        BottomNavigationBarItem(icon: Icon(Icons.data_object),
+        label: "Datos",
+        backgroundColor: Colors.brown),
+        BottomNavigationBarItem(icon: Icon(Icons.exit_to_app),
+        label: "Salir",
+        backgroundColor: Colors.greenAccent),
+      ],
+      unselectedLabelStyle: AppTheme.lightTheme.textTheme.bodyMedium,
       ),
     );
   }
@@ -54,6 +64,7 @@ class _InputScreenState extends State<InputScreen> {
   Row entradaSwitch(){
     return Row(
       children: <Widget>[
+        const FlutterLogo(),
         Text('¿Te gusta Flutter?',
         style: AppTheme.lightTheme.textTheme.headlineLarge,),
         const SizedBox(width: 25.0,),

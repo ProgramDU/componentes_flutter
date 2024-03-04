@@ -25,6 +25,13 @@ class HomeScreen extends StatelessWidget {
               subtitle: Text("Diferentes widgets para entradas del flutter",
               style: AppTheme.lightTheme.textTheme.bodyMedium,
               ),
+              // ejemplo de opciones de CIRCULOS :3
+              // trailing: const CircularProgressIndicator(
+              //   value: 0.4,
+              //   color:Color.fromARGB(255, 157, 206, 43),
+              //   backgroundColor: Colors.redAccent,
+              //   strokeWidth: 12,
+              // ),
               
               onTap: () {
                 final ruta1 = MaterialPageRoute(builder: (context){
