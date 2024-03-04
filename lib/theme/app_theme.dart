@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme{
-  static const mainColor = Color.fromARGB(6, 255, 221, 29);
-  static const backColor = Color.fromARGB(7, 183, 179, 185);
-  static  const accentColor = Color.fromARGB(6, 37, 11, 131);
+  static const mainColor = Color.fromARGB(255, 44, 190, 183);
+  static const backColor = Color.fromARGB(255, 242, 239, 243);
+  static  const accentColor = Color.fromARGB(255, 205, 219, 221);
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     scaffoldBackgroundColor: const Color.fromARGB(255, 239, 220, 240),
