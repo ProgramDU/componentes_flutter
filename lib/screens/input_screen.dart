@@ -102,9 +102,9 @@ class _InputScreenState extends State<InputScreen> {
           min: 0.0,
           max: 10.0,
           value: valueSlider, 
-          activeColor: Color.fromARGB(255, 11, 180, 180),
-          inactiveColor: Colors.blueAccent,
-          thumbColor: Color.fromARGB(255, 124, 29, 133),
+          activeColor: const Color.fromARGB(255, 11, 199, 183),
+          inactiveColor: const Color.fromARGB(255, 198, 147, 202),
+          thumbColor: const Color.fromARGB(255, 46, 93, 131),
           divisions: 12,
           label: '${valueSlider.round()}',
         onChanged: (value){

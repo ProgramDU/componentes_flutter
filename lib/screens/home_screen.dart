@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_componentes/screens/image_screen.dart';
 import 'package:practica3_componentes/screens/infinit_list_screen.dart';
 import 'package:practica3_componentes/screens/input_screen.dart';
 import 'package:practica3_componentes/screens/notification_screen.dart';
@@ -28,7 +29,7 @@ class HomeScreen extends StatelessWidget {
               // ejemplo de opciones de CIRCULOS :3
               // trailing: const CircularProgressIndicator(
               //   value: 0.4,
-              //   color:Color.fromARGB(255, 157, 206, 43),
+              //   color:Color.fromARGB(255, 157, 206, 
               //   backgroundColor: Colors.redAccent,
               //   strokeWidth: 12,
               // ),
@@ -74,6 +75,19 @@ class HomeScreen extends StatelessWidget {
                   return const NotificationScreen();
                 });
                 Navigator.push(context, ruta3);
+              },
+            ),
+            ListTile(
+              leading: IconTheme(data: AppTheme.lightTheme.iconTheme, 
+              child: const Icon(Icons.image),),
+              title: Text( 'imagenes',
+              style: AppTheme.lightTheme.textTheme.headlineLarge,),
+              
+              onTap: () {
+                final ruta4 = MaterialPageRoute(builder: (context){
+                  return const ImagesScreen();
+                });
+                Navigator.push(context, ruta4);
               },
             ),
           ],
