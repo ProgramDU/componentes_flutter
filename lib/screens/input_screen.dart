@@ -1,4 +1,10 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
+import 'package:practica3_componentes/screens/home_screen.dart';
+import 'package:practica3_componentes/screens/image_screen.dart';
+import 'package:practica3_componentes/screens/infinit_list_screen.dart';
+import 'package:practica3_componentes/screens/notification_screen.dart';
 import 'package:practica3_componentes/theme/app_theme.dart';
 
 
@@ -16,7 +22,29 @@ class _InputScreenState extends State<InputScreen> {
   bool isChecked3 = false;
   double valueSlider = 0.0;
   int selectedIndex =0;
-  int selectedRadioOption = 0; // valor para los RadioButton
+  int selectedRadioOption = 0; 
+  
+
+  openScreen(int index, BuildContext context){
+    setState(() {
+      MaterialPageRoute ruta =MaterialPageRoute(builder: (context) => const HomeScreen());
+    switch (index){
+      case 0: ruta = MaterialPageRoute(builder: (context) => const HomeScreen());
+      break;
+      case 1:  ruta = MaterialPageRoute(builder: (context) => const InfiniteListScreen());
+      break;
+      case 2:  ruta = MaterialPageRoute(builder: (context) => const NotificationScreen());
+      break;
+      case 3:  ruta = MaterialPageRoute(builder: (context) => const ImagesScreen());
+      break;
+    }
+    selectedIndex = index;
+    //print('selectedIndex = $selectedIndex');
+    Navigator.push(context, ruta);
+    });
+}
+  
+  // valor para los RadioButton
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -43,19 +71,31 @@ class _InputScreenState extends State<InputScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(currentIndex: selectedIndex,
-      backgroundColor: AppTheme.accentColor,
+      bottomNavigationBar: BottomNavigationBar(
+      currentIndex: selectedIndex,
+      backgroundColor: const Color.fromARGB(255, 186, 206, 209),
+      unselectedItemColor: const Color.fromARGB(255, 120, 67, 136),
+      onTap: (index) => openScreen(index, context),
       items: const[
+        
         BottomNavigationBarItem(icon:Icon(Icons.home_max_rounded,
-        color: AppTheme.backColor,),
+        color: Color.fromARGB(255, 231, 247, 243),),
         label: "Inicio",
-        backgroundColor: Color.fromARGB(255, 235, 242, 247)),
-        BottomNavigationBarItem(icon: Icon(Icons.data_object, color: AppTheme.backColor,),
+        backgroundColor: Color.fromARGB(255, 11, 122, 98)),
+        BottomNavigationBarItem(icon: Icon(Icons.data_object, color: Color.fromARGB(255, 235, 245, 242),),
         label: "Datos",
-        backgroundColor: Color.fromARGB(255, 238, 236, 252)),
-        BottomNavigationBarItem(icon: Icon(Icons.exit_to_app, color: AppTheme.backColor,),
+        backgroundColor: Color.fromARGB(255, 37, 134, 130)),
+        BottomNavigationBarItem(icon:Icon(Icons.home_max_rounded,
+        color: Color.fromARGB(255, 224, 231, 230),),
+        label: "Notificaciones",
+        backgroundColor: Color.fromARGB(255, 17, 145, 106)),
+        BottomNavigationBarItem(icon:Icon(Icons.home_max_rounded,
+        color: Color.fromARGB(255, 223, 236, 234),),
+        label: "Images",
+        backgroundColor: Color.fromARGB(255, 26, 128, 114)),
+        BottomNavigationBarItem(icon: Icon(Icons.exit_to_app, color: Color.fromARGB(255, 229, 222, 231),),
         label: "Salir",
-        backgroundColor: Color.fromARGB(255, 237, 252, 245)),
+        backgroundColor: Color.fromARGB(255, 223, 228, 227)),
       ],
       unselectedLabelStyle: AppTheme.lightTheme.textTheme.bodyMedium,
       ),
