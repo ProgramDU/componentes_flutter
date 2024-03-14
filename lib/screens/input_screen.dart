@@ -1,6 +1,8 @@
-import 'dart:js';
+
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:practica3_componentes/screens/data_screen.dart';
 import 'package:practica3_componentes/screens/home_screen.dart';
 import 'package:practica3_componentes/screens/image_screen.dart';
 import 'package:practica3_componentes/screens/infinit_list_screen.dart';
@@ -21,7 +23,7 @@ class _InputScreenState extends State<InputScreen> {
   bool isChecked2 = false;
   bool isChecked3 = false;
   double valueSlider = 0.0;
-  int selectedIndex =0;
+  int selectedIndex =2;
   int selectedRadioOption = 0; 
   
 
@@ -29,13 +31,18 @@ class _InputScreenState extends State<InputScreen> {
     setState(() {
       MaterialPageRoute ruta =MaterialPageRoute(builder: (context) => const HomeScreen());
     switch (index){
-      case 0: ruta = MaterialPageRoute(builder: (context) => const HomeScreen());
+     case 0: ruta = MaterialPageRoute(builder: (context) => const HomeScreen());
       break;
       case 1:  ruta = MaterialPageRoute(builder: (context) => const InfiniteListScreen());
       break;
-      case 2:  ruta = MaterialPageRoute(builder: (context) => const NotificationScreen());
+      case 2: ruta= MaterialPageRoute(builder: (context) => const InputScreen());
       break;
-      case 3:  ruta = MaterialPageRoute(builder: (context) => const ImagesScreen());
+      case 3:  ruta = MaterialPageRoute(builder: (context) => const NotificationScreen());
+      break;
+      case 4:  ruta = MaterialPageRoute(builder: (context) => const ImagesScreen());
+      break;
+      case 5:  SystemChannels.platform.invokeListMethod('systemNavigator.pop');
+      selectedIndex = index;
       break;
     }
     selectedIndex = index;
@@ -59,13 +66,19 @@ class _InputScreenState extends State<InputScreen> {
            entradaSwitch(),
            entradaSlider(),
            entradaRadio(),
-           Text('Que usas para correr tus apps de flutter?',
+           Text('¿Què usas para correr tus apps de flutter?',
            style: AppTheme.lightTheme.textTheme.headlineMedium,),
            entradasCheck(),
 
 
-            const ElevatedButton(onPressed: null, child: Text('Guardar',
-            )
+           ElevatedButton(onPressed: () {
+                final rutaData = MaterialPageRoute(builder: (context){
+                  return const DataScreen();
+                });
+                Navigator.push(context, rutaData);
+              },
+               child: const Text('Guardar',
+            ),
             ),
             
           ],
@@ -85,6 +98,10 @@ class _InputScreenState extends State<InputScreen> {
         BottomNavigationBarItem(icon: Icon(Icons.data_object, color: Color.fromARGB(255, 235, 245, 242),),
         label: "Datos",
         backgroundColor: Color.fromARGB(255, 37, 134, 130)),
+        BottomNavigationBarItem(icon: Icon(Icons.input, color: Color.fromARGB(255, 235, 245, 242),),
+        label: "Entradas",
+        backgroundColor: Color.fromARGB(255, 37, 134, 130)),
+
         BottomNavigationBarItem(icon:Icon(Icons.home_max_rounded,
         color: Color.fromARGB(255, 224, 231, 230),),
         label: "Notificaciones",
@@ -95,7 +112,7 @@ class _InputScreenState extends State<InputScreen> {
         backgroundColor: Color.fromARGB(255, 26, 128, 114)),
         BottomNavigationBarItem(icon: Icon(Icons.exit_to_app, color: Color.fromARGB(255, 229, 222, 231),),
         label: "Salir",
-        backgroundColor: Color.fromARGB(255, 223, 228, 227)),
+        backgroundColor: Color.fromARGB(255, 84, 163, 147)),
       ],
       unselectedLabelStyle: AppTheme.lightTheme.textTheme.bodyMedium,
       ),
@@ -105,7 +122,7 @@ class _InputScreenState extends State<InputScreen> {
   TextField entradaTexto() {
     return TextField(
         decoration: InputDecoration(
-          border:  UnderlineInputBorder(),
+          border:  const UnderlineInputBorder(),
           labelText: 'Escribe tu nombre',
           labelStyle: AppTheme.lightTheme.textTheme.headlineLarge
         ),
@@ -143,7 +160,7 @@ class _InputScreenState extends State<InputScreen> {
           max: 10.0,
           value: valueSlider, 
           activeColor: const Color.fromARGB(255, 11, 199, 183),
-          inactiveColor: const Color.fromARGB(255, 198, 147, 202),
+          inactiveColor:const Color.fromARGB(255, 213, 191, 214),
           thumbColor: const Color.fromARGB(255, 46, 93, 131),
           divisions: 12,
           label: '${valueSlider.round()}',
